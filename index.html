@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sujit S Remady | Photographer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Styles */
+        :root {
+            --primary: #f0c14b; /* Subtle gold accent */
+            --bg-color: #121212;
+            --surface: #1e1e1e;
+            --text-main: #f5f5f5;
+            --text-muted: #aaaaaa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: rgba(18, 18, 18, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+            background: linear-gradient(rgba(18,18,18,0.7), rgba(18,18,18,1)), url('https://picsum.photos/1920/1080?camera') no-repeat center center/cover;
+        }
+
+        #hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        #hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: var(--primary);
+            color: var(--bg-color);
+        }
+
+        /* Sections General */
+        section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary);
+        }
+
+        /* About Section */
+        #about p {
+            font-size: 1.1rem;
+            text-align: center;
+            color: var(--text-muted);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 5px;
+            text-align: center;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .skill-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            background: var(--surface);
+            padding: 2rem;
+            border-left: 4px solid var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        .experience-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item h4 {
+            color: var(--primary);
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .experience-item .date-location {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .experience-item ul {
+            list-style-position: inside;
+            color: var(--text-muted);
+        }
+
+        .experience-item ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Portfolio Placeholder Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1rem;
+        }
+
+        .portfolio-item {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 3px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.02);
+        }
+
+        /* Footer / Contact */
+        footer {
+            background: var(--surface);
+            padding: 4rem 5%;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .contact-item i {
+            color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none; /* Can add a hamburger menu later if needed */
+            }
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">SSR</div>
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="hero">
+        <h1>Sujit S Remady</h1>
+        <p>Photographer & Visual Media Professional</p>
+        <a href="#portfolio" class="btn">View My Work</a>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">Professional Summary</h2>
+        <p>
+            Creative and dedicated Photographer and Visual Media Professional with more than 3 years of professional studio experience. Highly experienced in wedding, event, candid, portrait, couple, traditional, studio, outdoor and on-location photography. Strong practical knowledge of camera operation, lens selection, manual exposure, flash and lighting, composition, image selection and digital post-production. Client-focused and comfortable working under time-sensitive event conditions while maintaining exceptional image quality and organized delivery workflows.
+        </p>
+    </section>
+
+    <!-- Expertise / Skills Section -->
+    <section id="expertise">
+        <h2 class="section-title">Core Competencies</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fas fa-camera"></i>
+                <h3>Photography Styles</h3>
+                <p>Wedding, Candid, Event, Portrait, Couple, Traditional, Studio, Indoor/Outdoor & Low-Light Photography.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-sliders-h"></i>
+                <h3>Technical Execution</h3>
+                <p>Camera Operation, Lens Selection, Manual Exposure, Flash Photography, Natural & Artificial Lighting, Creative Composition.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-desktop"></i>
+                <h3>Digital Post-Production</h3>
+                <p>Photo Editing, Color Correction, Exposure/Contrast Adjustment, Skin & Portrait Retouching, Image Culling & Organization.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="experience-item">
+            <h3>Photographer / Photography Professional</h3>
+            <h4>Seekers Digital Studio</h4>
+            <div class="date-location">
+                <span><i class="far fa-calendar-alt"></i> Feb 2023 – Jul 2026</span>
+                <span><i class="fas fa-map-marker-alt"></i> Trivandrum, Kerala, India</span>
+            </div>
+            <ul>
+                <li>Covered wedding, reception, engagement, portrait, couple and various event photography assignments.</li>
+                <li>Captured candid and traditional photographs with strong attention to composition, timing, emotion and visual quality.</li>
+                <li>Operated professional cameras, lenses, flashes, lighting equipment and related photography accessories.</li>
+                <li>Planned and executed photographic compositions using natural and artificial lighting.</li>
+                <li>Worked directly with clients to understand requirements, preferences, schedules and expectations.</li>
+                <li>Performed image selection, culling, color correction, exposure adjustment, cropping, retouching and enhancement.</li>
+                <li>Applied portrait and skin retouching techniques while maintaining a natural and realistic appearance.</li>
+                <li>Prepared high-resolution final images for digital delivery, client presentation and organized archives.</li>
+                <li>Maintained an organized workflow from image capture through editing and final delivery under time-sensitive conditions.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <h2 class="section-title">Portfolio Showcase</h2>
+        <!-- Instructions: Replace the src URLs with links to Sujit's actual photos -->
+        <div class="portfolio-grid">
+            <img src="https://picsum.photos/600/400?wedding" alt="Wedding Photography" class="portfolio-item">
+            <img src="https://picsum.photos/600/400?portrait" alt="Portrait Photography" class="portfolio-item">
+            <img src="https://picsum.photos/600/400?event" alt="Event Photography" class="portfolio-item">
+            <img src="https://picsum.photos/600/400?couple" alt="Couple Photography" class="portfolio-item">
+            <img src="https://picsum.photos/600/400?studio" alt="Studio Photography" class="portfolio-item">
+            <img src="https://picsum.photos/600/400?nature" alt="Outdoor Photography" class="portfolio-item">
+        </div>
+    </section>
+
+    <!-- Footer / Contact Section -->
+    <footer id="contact">
+        <h2 class="section-title" style="margin-bottom: 2rem;">Get In Touch</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>+91 9605819658</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>sujitremady@gmail.com</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Indian Sajitham St. Andrew's St. Xavier's College P O, Trivandrum 695586, India</span>
+            </div>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 2rem;">&copy; 2026 Sujit S Remady. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
